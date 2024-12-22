@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login et Formulaire de Contact</title>
+    <link rel="stylesheet" href="./CSS/styleform.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Section Login -->
+        <div class="login">
+            <h1>Login</h1>
+            <form>
+                <label for="login">Login :</label>
+                <input type="text" id="login" placeholder="Saisir votre login">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" placeholder="********">
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+
+        <!-- Section Formulaire de Contact -->
+        <div class="contact-form">
+            <h1>Formulaire de contact</h1>
+            <form>
+                <div class="name-fields">
+                    <div>
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" placeholder="Saisir votre nom">
+                    </div>
+                    <div>
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" placeholder="Saisir votre prénom">
+                    </div>
+                </div>
+                <label for="email">Adresse mail :</label>
+                <input type="email" id="email" placeholder="Saisir votre adresse mail">
+                <label for="sujet">Votre sujet :</label>
+                <select id="sujet">
+                    <option value="---">---</option>
+                    <option value="demande">Demande 1</option>
+                    <option value="demande">Demande 2</option>
+                    <option value="demande">Demande 3</option>
+                </select>
+                <label for="message">Votre message :</label>
+                <textarea id="message" placeholder="Votre message"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

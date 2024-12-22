@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFPA CDA</title>
+
+<!-- Styles CSS -->
+<style>
+    /* Style général du body (polices et arrière-plan) */
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    }
+
+    /* Style de l'en-tête */
+    header {
+    background-color: #e9ecef;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    }
+
+    /* Conteneur principal avec Flexbox pour disposition */
+    .container {
+    display: flex; /* Disposition en ligne (flexbox) */
+    width: 80%; /* Largeur limitée pour centrer */
+    margin: 20px auto; /* Centrer horizontalement */
+    gap: 20px; /* Espacement entre les éléments */
+    }
+
+    /* Style de la section principale */
+    main {
+    flex: 3; /* Le contenu principal occupe plus d'espace */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    }
+
+    /* Style pour les asides (gauche et droit) */
+    aside {
+    flex: 1; /* Les asides occupent moins d'espace */
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Ombre pour effet esthétique */
+    }
+
+    aside h2 {
+    font-size: 18px; /* Taille du titre des asides */
+    margin-bottom: 10px; /* Espacement sous le titre */
+    }
+
+    aside ul {
+    list-style: none; /* Supprime les puces des listes */
+    padding: 0; /* Supprime les marges internes */
+    }
+
+    aside ul li {
+    margin-bottom: 5px; /* Espacement entre les éléments de la liste */
+    }
+
+    aside ul li a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: #007BFF; /* Couleur bleu des liens */
+    }
+
+    aside ul li a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+    }
+
+    /* Style du tableau */
+    table {
+    width: 100%; /* Le tableau occupe toute la largeur */
+    border-collapse: collapse; /* Fusionne les bordures */
+    margin-top: 10px; /* Espacement au-dessus */
+    }
+
+    table thead {
+    background-color: #f2f2f2; /* Fond gris clair pour l'en-tête */
+    }
+
+    table th, table td {
+    border: 1px solid #ddd; /* Bordures du tableau */
+    padding: 10px; /* Espacement interne */
+    text-align: left; /* Alignement à gauche */
+    }
+
+    table th {
+    font-weight: bold; /* Texte en gras pour l'en-tête */
+    }
+
+    table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternance des couleurs des lignes */
+    }
+
+    /* Pied de page */
+    footer {
+    text-align: center; /* Texte centré */
+    background-color: #e9ecef; /* Fond gris clair */
+    padding: 10px 0; /* Espacement interne */
+    margin-top: 20px; /* Espacement au-dessus du pied de page */
+    font-size: 14px; /* Taille réduite de la police */
+    color: #6c757d; /* Couleur gris clair */
+    }
+</style>
+</head>
+<body>
+<!-- En-tête -->
+<header>
+    AFPA CDA <!-- Titre principal affiché dans l'en-tête -->
+</header>
+
+<!-- Conteneur principal avec disposition en Flexbox -->
+<div class="container">
+    <!-- Aside gauche -->
+    <aside>
+    <h2>Liens importants</h2> <!-- Titre de l'aside -->
+    <ul>
+        <!-- Liste des liens dans l'aside gauche -->
+        <li><a href="https://www.afpa.fr" target="_blank">AFPA</a></li>
+        <li><a href="https://developer.mozilla.org/fr/" target="_blank">MDN Web Docs</a></li>
+        <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+        <li><a href="https://validator.w3.org/" target="_blank">W3C Validator</a></li>
+    </ul>
+    </aside>
+
+    <!-- Section principale -->
+    <main>
+    <h2>Voici la liste des stagiaires de la formation CDA.</h2> <!-- Titre principal -->
+    <!-- Tableau des stagiaires -->
+    <table>
+        <thead>
+        <tr>
+            <th>#</th> <!-- Colonne des numéros -->
+            <th>Nom</th> <!-- Colonne des noms -->
+            <th>Prénom</th> <!-- Colonne des prénoms -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Lignes des stagiaires -->
+        <tr>
+            <td>1</td>
+            <td>Auroux-Martel</td>
+            <td>Jonathan</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Chambres</td>
+            <td>Cédric</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Dufau-Pigeon</td>
+            <td>Émilie</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Ferlin</td>
+            <td>Noel</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Lonne</td>
+            <td>Alexis Claude</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Marlère</td>
+            <td>Benoit</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Terki</td>
+            <td>Christophe</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Voynnet</td>
+            <td>Yragael</td>
+        </tr>
+        </tbody>
+    </table>
+    </main>
+
+    <!-- Aside droit -->
+    <aside>
+    <h2>Ressources</h2> <!-- Titre de l'aside droit -->
+    <ul>
+        <!-- Liste des liens dans l'aside droit -->
+        <li><a href="https://html.spec.whatwg.org/" target="_blank">Spécification HTML</a></li>
+        <li><a href="https://css-tricks.com/" target="_blank">CSS Tricks</a></li>
+        <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+        <li><a href="https://www.w3.org/" target="_blank">W3C</a></li>
+    </ul>
+    </aside>
+</div>
+
+<!-- Pied de page -->
+<footer>
+    © 2024 CDA AFPA - Tous droits réservés <!-- Texte du pied de page -->
+</footer>
+</body>
+</html>

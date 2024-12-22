@@ -1,0 +1,1 @@
+print("Votre chaine a l'envers : " + ''.join(reversed(input("Votre chaine : "))))

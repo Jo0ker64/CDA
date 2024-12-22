@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exemple de page HTML avec classes et identifiants">
+    <title>Exemple de Page HTML</title>
+    <style>
+        /* Styles pour les identifiants */
+        #header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête de la page -->
+    <header id="header">
+        <h1>Bienvenue sur mon site web</h1>
+        <nav>
+            <a href="#main-content" class="btn">Aller au contenu</a>
+            <a href="#footer" class="btn">Aller au pied de page</a>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main id="main-content">
+        <section>
+            <h2 class="section-title">Introduction</h2>
+            <p>Ce site web est un exemple pour démontrer l'utilisation des <span class="highlight">classes</span> et des <span class="highlight">identifiants</span> dans HTML.</p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Contenu avec liste</h2>
+            <ul>
+                <li class="highlight">Élément important</li>
+                <li>Élément ordinaire</li>
+                <li class="highlight">Un autre élément important</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Formulaire de contact</h2>
+            <form id="contact-form">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" class="form-control">
+                <br>
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" class="form-control">
+                <br>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer id="footer">
+        <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

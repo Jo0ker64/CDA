@@ -1,0 +1,13 @@
+{
+    "Alice": {
+        "phone": "0123456789",
+        "email": "alice_new@example.com"
+    },
+    "Jonathan auroux": {
+        "first_name": "Jonathan",
+        "last_name": "auroux",
+        "phone": "0658544791",
+        "email": "martel.joanthan64@gmail.com",
+        "address": "13 rue gambetta 40100 dax"
+    }
+}

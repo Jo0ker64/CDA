@@ -1,0 +1,43 @@
+{
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.iconTheme": "material-icon-theme",
+    "security.workspace.trust.untrustedFiles": "open",
+    "doublebot.showInlineKeybindingHint": "Never",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "OpenDyslexic",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 24,
+    "editor.fontLigatures": true,
+    "editor.guides.bracketPairs": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "smooth",
+    "editor.stickyScroll.enabled": true,
+    "editor.renderLineHighlight": "all",
+    "editor.lineNumbers": "on",
+    "editor.guides.highlightActiveIndentation": true,
+    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.lineHeight": 1,
+    "terminal.integrated.cursorBlinking": true
+}
+
+{
+    "circle": {
+      "radius": 5,
+      "properties": {
+        "area": 78.53981633974483,
+        "perimeter": 31.41592653589793
+      }
+    }
+  }
+  

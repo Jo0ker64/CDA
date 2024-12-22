@@ -1,0 +1,145 @@
+/* Variables CSS */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --font-size-large: 1.5rem;
+    --border-radius: 10px;
+}
+
+/* Commentaire CSS : styles de base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sélecteurs universels, groupés et descendant */
+*,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.container .content {
+    padding: 20px;
+}
+
+/* Sélecteur ID */
+#header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Sélecteur de classe */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Pseudo-classes */
+.button:hover {
+    background-color: darkgreen;
+}
+
+/* Pseudo-éléments */
+.button::after {
+    content: ' →';
+}
+
+/* Sélecteurs d'attributs */
+input[type="text"] {
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 5px;
+}
+
+/* Sélecteurs enfants et adjacents */
+ul > li {
+    list-style: none;
+}
+
+h2 + p {
+    font-style: italic;
+    color: gray;
+}
+
+/* Grille CSS */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid-item {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* Flexbox */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-item {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Animation et transition */
+@keyframes slidein {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animated-box {
+    animation: slidein 1s ease-in-out;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .button {
+        font-size: var(--font-size-large);
+    }
+}
+
+/* Shapes et images */
+.shape {
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary-color);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}

@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif  ;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 90%;
+    max-width: 800px;
+}
+
+.login, .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 5px;
+}
+
+label {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    display: block;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: auto;
+    border: 1px solid #bbb;
+    box-shadow: 5px 5px 5px #ccc;
+}
+
+.name-fields {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.name-fields div {
+    flex: 1;
+}

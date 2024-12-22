@@ -1,0 +1,302 @@
+1. Somme de deux nombres
+Votre script demande 2 nombres en entrée et vous affichez le résultat de l’addition
+        Début
+            Lire nombre1
+            Lire nombre2
+            somme ← nombre1 + nombre2
+            Afficher "La somme est : " + somme
+        Fin
+
+
+2. Mineur ou majeur ?
+Votre script demande l’âge d’un utilisateur et vous affichez “majeur” ou “mineur”
+        Début
+            Lire age
+            Si age ≥ 18 Alors
+                Afficher "Majeur"
+            Sinon
+                Afficher "Mineur"
+            FinSi
+        Fin
+
+
+3. Nombre pair ou impair
+ Votre script demande 1 nombre en entrée et vous retournez “pair” ou “impair”
+        Début
+            Lire nombre
+            Si nombre modulo 2 = 0 Alors
+                Afficher "Pair"
+            Sinon
+                Afficher "Impair"
+            FinSi
+        Fin
+
+4. Inverser une chaîne de caractères
+ Votre script demande une chaine de caractères en entrée et vous l’affichez dans le sens
+inverse. exemple : hello world = dlrow olleh
+        Début
+            Lire chaine
+            chaine_inversée ← ""
+            Pour chaque caractère dans chaine
+                chaine_inversée ← caractère + chaine_inversée
+            FinPour
+            Afficher chaine_inversée
+        Fin
+
+5. Nombre de voyelles dans un mot
+Votre script demande un mot a l’utilisateur en entrée, indiquez le nombre de voyelle que le mot contient
+        Début
+            Lire mot
+            voyelles ← "aeiouy"
+            compteur_voyelles ← 0
+            Pour chaque lettre dans mot
+                Si lettre est dans voyelles Alors
+                    compteur_voyelles ← compteur_voyelles + 1
+                FinSi
+            FinPour
+            Afficher "Nombre de voyelles : " + compteur_voyelles
+        Fin
+
+6. Palindrome ?
+Votre script demande un mot en entrée, indiquez si le mot est un palindrome ou non
+        Début
+            Lire mot
+            mot_inversé ← ""
+            Pour chaque caractère dans mot
+                mot_inversé ← caractère + mot_inversé
+            FinPour
+            Si mot = mot_inversé Alors
+                Afficher "C'est un palindrome"
+            Sinon
+                Afficher "Ce n'est pas un palindrome"
+            FinSi
+        Fin
+
+7. Plus petit
+Votre script prend une liste en entrée, indiquez le plus petit élément de la liste
+        Début
+            Lire liste
+            plus_petit ← premier élément de liste
+            Pour chaque nombre dans liste
+                Si nombre < plus_petit Alors
+                    plus_petit ← nombre
+                FinSi
+            FinPour
+            Afficher "Le plus petit élément est : " + plus_petit
+        Fin
+
+8. Plus grand
+Votre script prend une liste en entrée, indiquez le plus grand élément de la liste
+        Début
+            Lire liste
+            plus_grand ← premier élément de liste
+            Pour chaque nombre dans liste
+                Si nombre > plus_grand Alors
+                    plus_grand ← nombre
+                FinSi
+            FinPour
+            Afficher "Le plus grand élément est : " + plus_grand
+        Fin
+
+9. Calculer une moyenne
+Votre script prend une liste de notes en entrée, indiquez la moyenne de la liste.
+        Début
+            Lire liste_de_notes
+            somme ← 0
+            Pour chaque note dans liste_de_notes
+                somme ← somme + note
+            FinPour
+            moyenne ← somme / nombre d'éléments dans liste_de_notes
+            Afficher "La moyenne est : " + moyenne
+        Fin
+
+10. Trouvez le nombre le plus répété
+Votre script prend une liste de nombres en entrée, indiquez le nombre qui se répète le plus de fois dans la liste
+        Début
+            Lire liste
+            Créer un dictionnaire compteur
+            Pour chaque nombre dans liste
+                Si nombre existe déjà dans compteur Alors
+                    compteur[nombre] ← compteur[nombre] + 1
+                Sinon
+                    compteur[nombre] ← 1
+                FinSi
+            FinPour
+            plus_repete ← clé avec la plus grande valeur dans compteur
+            Afficher "Le nombre le plus répété est : " + plus_repete
+        Fin
+
+11. Somme des nombres pairs 
+Votre script prend une liste en entrée, indiquez la somme des nombres pairs dans la liste
+        Début
+            Lire liste
+            somme_pairs ← 0
+            Pour chaque nombre dans liste
+                Si nombre modulo 2 = 0 Alors
+                    somme_pairs ← somme_pairs + nombre
+                FinSi
+            FinPour
+            Afficher "La somme des nombres pairs est : " + somme_pairs
+        Fin
+
+12. Table de multiplication
+a. Votre script prend le numéro d’une table en entrée, affichez la table complète jusqu’à 10.
+        Début
+            Lire nombre
+            Pour i allant de 1 à 10
+                résultat ← nombre * i
+                Afficher nombre + " x " + i + " = " + résultat
+            FinPour
+        Fin
+
+13. Prix HT
+Votre script prend un prix TTC en entrée, indiquez le prix HT du produit. (TVA 20%)
+        Début
+            Lire prix_TTC
+            prix_HT ← prix_TTC / 1.20
+            Afficher "Le prix HT est : " + prix_HT
+        Fin
+
+14. Montant TVA
+Votre script prend en entrée un prix HT, indiquez le montant de la TVA (5%)
+        Début
+            Lire prix_HT
+            TVA ← prix_HT * 0.05
+            Afficher "Le montant de la TVA est : " + TVA
+        Fin
+
+15. Commande photocopies
+Votre script prend en entrée un nombre de photocopies a faire, indiquez le prix de la
+commande en sachant que :
+- de 1 à 10 photocopies le prix est de 0.20€ par page
+- de 11 à 30 photocopies le prix est de 0.15€ par page
+- de 31 à n photocopies le prix est de 0.10€ par page
+        Début
+            Lire nombre_photocopies
+            Si nombre_photocopies ≤ 10 Alors
+                prix ← nombre_photocopies * 0.20
+            Sinon Si nombre_photocopies ≤ 30 Alors
+                prix ← 10 * 0.20 + (nombre_photocopies - 10) * 0.15
+            Sinon
+                prix ← 10 * 0.20 + 20 * 0.15 + (nombre_photocopies - 30) * 0.10
+            FinSi
+            Afficher "Le prix total est : " + prix
+        Fin
+
+16. Suite de Fibonacci
+Faire un script qui calcule jusqu’à un nombre donner le suite de Fibonacci
+        Début
+            Lire n
+            Si n = 0 Alors
+                Afficher 0
+            Sinon Si n = 1 Alors
+                Afficher 0, 1
+                Sinon
+                    f0 ← 0
+                    f1 ← 1
+                Afficher f0, f1
+                    Pour i allant de 2 à n - 1
+                        fn ← f0 + f1
+                        Afficher fn
+                        f0 ← f1
+                        f1 ← fn
+                    FinPour
+            FinSi
+        Fin
+
+17. Élimination des doublons dans une liste :
+Ecrire un script qui supprime tous les doublons dans une liste, attention l’ordre doit rester le même
+            Début
+                liste ← [1, 2, 3, 1, 2, 4, 5, 3, 6]  // Exemple de liste avec des doublons
+                nouvelle_liste ← []
+
+                Pour chaque élément dans liste
+                    Si élément n'est pas dans nouvelle_liste Alors
+                        Ajouter élément à nouvelle_liste
+                    FinSi
+                FinPour
+
+                Afficher "Liste sans doublons :", nouvelle_liste
+            Fin
+
+18. Calcul de la prime d’assurance basée sur des critères
+Règles :
+    Prime de base : Voiture : 500€, Moto : 300€, Camion : 1000€.
+    Majoration pour âge du véhicule : +10% si le véhicule a plus de 5 ans.
+    Majoration pour kilométrage annuel : +5% si plus de 20 000 km, + 15% si plus de 30 000km
+
+            Début
+                // Données de base
+                type_vehicule ← "Voiture"      // Peut être "Voiture", "Moto" ou "Camion"
+                age_vehicule ← 6               // Âge du véhicule en années
+                kilometrage_annuel ← 25000     // Kilométrage annuel
+                prime ← 0                      // Initialisation de la prime de base
+
+                // Définition de la prime de base selon le type de véhicule
+                Si type_vehicule = "Voiture" Alors
+                    prime ← 500
+                Sinon Si type_vehicule = "Moto" Alors
+                    prime ← 300
+                Sinon Si type_vehicule = "Camion" Alors
+                    prime ← 1000
+                FinSi
+
+                // Majoration pour l'âge du véhicule
+                Si age_vehicule > 5 Alors
+                    prime ← prime * 1.10       // +10%
+                FinSi
+
+                // Majoration pour le kilométrage annuel
+                Si kilometrage_annuel > 30000 Alors
+                    prime ← prime * 1.15       // +15%
+                Sinon Si kilometrage_annuel > 20000 Alors
+                    prime ← prime * 1.05       // +5%
+                FinSi
+
+                Afficher "Prime d'assurance :", prime
+            Fin
+
+ 19. Catégorie d'assurance pour un véhicule
+Ecrire un script qui retourne la catégorie d’un assuré en fonction des critères suivants
+Critères :
+    Catégorie "Rouge" : Moins de 2 ans de permis ou plus de 3 accidents.
+    Catégorie "Orange" : Moins de 5 ans de permis et entre 1 et 2
+    accidents.
+    Catégorie "Vert" : Plus de 5 ans de permis, avec moins de 1 accident.
+    Catégorie "Bleu" : Plus de 10 ans de permis sans accident.       
+
+            Début
+                // Données d'entrée
+                annees_permis ← 6     // Nombre d'années de permis
+                accidents ← 2         // Nombre d'accidents
+
+                // Initialisation de la catégorie par défaut
+                categorie ← "Non défini"
+
+                // Détermination de la catégorie d'assurance
+                Si annees_permis < 2 ou accidents > 3 Alors
+                    categorie ← "Rouge"
+                Sinon Si annees_permis < 5 et accidents ≥ 1 et accidents ≤ 2 Alors
+                    categorie ← "Orange"
+                Sinon Si annees_permis > 5 et accidents < 1 Alors
+                    categorie ← "Vert"
+                Sinon Si annees_permis > 10 et accidents = 0 Alors
+                    categorie ← "Bleu"
+                FinSi
+
+                Afficher "Catégorie d'assurance :", categorie
+            Fin
+
+20. Vérification saisie utilisateur (utilisation d’une boucle while)
+Ecrire un script qui vérifie que l’utilisateur saisie un nombre qui est compris dans l’intervalle 1 a 100
+Tant que l’utilisateurs n’as pas saisie un nombre dans l’intervalle le script doit reproposer un prompt
+
+            Début
+                Lire nombre
+                Tant que nombre n'est pas un nombre entre 1 et 100
+                    Afficher "Le nombre doit être compris entre 1 et 100."
+                    Lire nombre
+                FinTantQue
+
+                Afficher "Nombre valide saisi :", nombre
+            Fin

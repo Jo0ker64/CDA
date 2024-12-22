@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labyrinthe - Algorithme de Dijkstra</title>
+    <style>
+        /* Style similaire à l'exemple précédent */
+        #maze {
+            display: grid;
+            grid-template-columns: repeat(20, 30px);
+            grid-template-rows: repeat(15, 30px);
+            gap: 2px;
+            margin: 20px auto;
+            border: 5px solid #333;
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .wall {
+            background-color: #1e1e1e;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .path {
+            background-color: #81c784;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .start {
+            background-color: #64b5f6;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .end {
+            background-color: #ef5350;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .cell:hover {
+            transform: scale(1.1);
+        }
+
+        .path {
+            animation: highlight 1s ease-in-out;
+        }
+
+        @keyframes highlight {
+            0% {
+                background-color: #fdd835;
+            }
+            100% {
+                background-color: #81c784;
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Labyrinthe - Algorithme de Dijkstra</h1>
+<div id="maze"></div>
+
+<script>
+    // Représentation du labyrinthe (0 = chemin, 1 = mur)
+    const maze = [
+        [0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0],
+        [0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0],
+        [1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1],
+        [1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]
+    ];
+
+    const rows = maze.length;
+    const cols = maze[0].length;
+
+    // Point de départ (A) et d'arrivée (B)
+    const start = [0, 0];  // A
+    const end = [14, 19];  // B
+
+    // Directions pour se déplacer (haut, bas, gauche, droite)
+    const directions = [
+        [-1, 0], [1, 0], [0, -1], [0, 1]
+    ];
+
+    // Fonction pour vérifier si la position est valide
+    function isValid(x, y) {
+        return x >= 0 && y >= 0 && x < rows && y < cols && maze[x][y] === 0;
+    }
+
+    // Algorithme de Dijkstra
+    function dijkstra(start, end) {
+        const distances = Array.from({ length: rows }, () => Array(cols).fill(Infinity));
+        const priorityQueue = [[0, start]];  // [distance, [x, y]]
+        const parent = Array.from({ length: rows }, () => Array(cols).fill(null));
+        distances[start[0]][start[1]] = 0;
+
+        while (priorityQueue.length > 0) {
+            priorityQueue.sort((a, b) => a[0] - b[0]);  // Trier pour obtenir le plus petit coût en premier
+            const [currentDistance, [x, y]] = priorityQueue.shift();
+
+            if (x === end[0] && y === end[1]) {
+                return reconstructPath(parent, start, end);
+            }
+
+            // Explorer les voisins
+            for (let [dx, dy] of directions) {
+                const newX = x + dx;
+                const newY = y + dy;
+
+                if (isValid(newX, newY)) {
+                    const newDistance = currentDistance + 1;  // Coût de déplacement de 1
+
+                    if (newDistance < distances[newX][newY]) {
+                        distances[newX][newY] = newDistance;
+                        parent[newX][newY] = [x, y];
+                        priorityQueue.push([newDistance, [newX, newY]]);
+                    }
+                }
+            }
+        }
+
+        return null;  // Pas de chemin trouvé
+    }
+
+    // Fonction pour reconstruire le chemin à partir du parent
+    function reconstructPath(parent, start, end) {
+        let path = [];
+        let current = end;
+
+        while (current) {
+            path.unshift(current);
+            current = parent[current[0]][current[1]];
+        }
+
+        return path;
+    }
+
+    // Dessiner le labyrinthe et le chemin
+    function drawMaze(path) {
+        const mazeDiv = document.getElementById('maze');
+        mazeDiv.innerHTML = '';  // Réinitialiser l'affichage
+
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const cellDiv = document.createElement('div');
+                cellDiv.classList.add('cell');
+                if (maze[i][j] === 1) {
+                    cellDiv.classList.add('wall');
+                } else if (i === start[0] && j === start[1]) {
+                    cellDiv.classList.add('start');
+                    cellDiv.innerText = 'A';
+                } else if (i === end[0] && j === end[1]) {
+                    cellDiv.classList.add('end');
+                    cellDiv.innerText = 'B';
+                }
+
+                // Mettre en surbrillance le chemin
+                if (path && path.some(([x, y]) => x === i && y === j)) {
+                    cellDiv.classList.add('path');
+                }
+
+                mazeDiv.appendChild(cellDiv);
+            }
+        }
+    }
+
+    // Trouver le chemin de A à B avec Dijkstra
+    const path = dijkstra(start, end);
+    drawMaze(path);
+
+    // Afficher le chemin dans la console
+    console.log("Chemin trouvé : ", path);
+</script>
+
+</body>
+</html>

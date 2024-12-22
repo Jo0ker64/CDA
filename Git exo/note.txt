@@ -1,0 +1,6 @@
+je suis le 1er commit de master
+<<<<<<< HEAD
+changement dans master
+=======
+ je modifie ce fichier pour créer un conflit
+>>>>>>> ma_super_branche
